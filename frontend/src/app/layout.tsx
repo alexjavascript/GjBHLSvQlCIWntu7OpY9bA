@@ -1,16 +1,11 @@
 import Body from "@/ui/layouts/Body/Body";
-import type { Metadata } from "next";
+import { PropsWithChildren } from "react";
 
-export const metadata: Metadata = {
-  title: "Event Planner | Red Collar",
-  description: "Internship Demo Work",
-};
+type Props = Readonly<PropsWithChildren>
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+function RootLayout(props: Props) {
+  const { children } = props;
+
   return (
     <html lang="en">
       <Body>
@@ -19,3 +14,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default RootLayout;

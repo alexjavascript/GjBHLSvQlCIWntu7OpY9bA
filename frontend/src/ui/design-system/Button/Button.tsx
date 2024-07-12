@@ -4,16 +4,17 @@ import styles from './Button.module.scss';
 import Text from "../Text/Text";
 
 type Props = {
-  display: 'primary' | 'secondary' | 'tertiary';
+  display?: 'primary' | 'secondary' | 'outline';
+  size?: 'default' | 'small';
   children: string;
 }
 
 const Button: FC<PropsWithChildren<Props>> = (props) => {
-  const { display, children } = props;
+  const { display = 'primary', size = 'default', children } = props;
 
   return (
-    <button className={classNames(styles.button, styles[display])}>
-      <Text tag="span" display="p2">
+    <button className={classNames(styles.button, styles[`size-${size}`], styles[`display-${display}`])}>
+      <Text tag="span" display="h3">
         {children}
       </Text>
     </button>
