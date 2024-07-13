@@ -13,7 +13,7 @@ const Button: FC<PropsWithChildren<Props>> = (props) => {
   const { display = 'primary', size = 'default', children } = props;
 
   return (
-    <button className={classNames(styles.button, styles[`size-${size}`], styles[`display-${display}`])}>
+    <button className={classNames(styles.button, styles[`display-${display}`], styles[`size-${size}`])}>
       <Text tag="span" display="h3">
         {children}
       </Text>

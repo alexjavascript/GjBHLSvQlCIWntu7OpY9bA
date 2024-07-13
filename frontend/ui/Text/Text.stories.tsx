@@ -4,7 +4,14 @@ import Text from './Text';
 
 const meta: Meta<typeof Text> = {
   component: Text,
-  tags: ['autodocs']
+  tags: ['autodocs'],
+  decorators: (Story) => {
+    return (
+      <div style={{color: 'var(--color-foreground-primary)'}}>
+        <Story />
+      </div>
+    )
+  }
 };
 
 export default meta;
