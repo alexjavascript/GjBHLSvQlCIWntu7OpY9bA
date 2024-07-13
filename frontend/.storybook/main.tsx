@@ -1,18 +1,9 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+import StorybookStyles from "./misc/StorybookStyles";
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.stories.tsx"],
-  managerHead: () => `
-    <style>
-      .sidebar-header img {
-        max-width: 150px !important;
-      }
-
-      #storybook-preview-wrapper iframe {
-        background-color: transparent !important;
-      }
-    </style>
-  `,
+  stories: ["../ui/**/*.stories.tsx"],
+  managerHead: StorybookStyles(),
   addons: [
     "@storybook/addon-onboarding",
     "@storybook/addon-links",
@@ -30,8 +21,8 @@ const config: StorybookConfig = {
   staticDirs: [
     "../public", 
     {
-      from: "../src/ui/design-system/Text/assets",
-      to: "src/ui/design-system/Text/assets"
+      from: "../public/fonts",
+      to: "public/fonts"
     }
   ],
 };

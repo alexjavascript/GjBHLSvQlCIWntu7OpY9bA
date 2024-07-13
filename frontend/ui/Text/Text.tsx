@@ -4,17 +4,17 @@ import classNames from "classnames";
 import styles from './Text.module.scss';
 
 const redcollar = localFont({ 
-  src: './assets/redcollar-400.woff2',
+  src: './../../public/fonts/redcollar-400.woff2',
 });
 
 const ttcommons = localFont({ 
   src: [
     {
-      path: './assets/tt-commons-400.woff2',
+      path: './../../public/fonts/tt-commons-400.woff2',
       weight: '400',
     },
     {
-      path: './assets/tt-commons-500.woff2',
+      path: './../../public/fonts/tt-commons-500.woff2',
       weight: '500',
     }
   ]

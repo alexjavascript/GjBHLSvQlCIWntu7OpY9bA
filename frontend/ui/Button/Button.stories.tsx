@@ -32,7 +32,7 @@ export const Secondary: Story = {
   }
 };
 
-export const Tertiary: Story = {
+export const Outline: Story = {
   args: {
     display: 'outline',
     children: 'Button'
