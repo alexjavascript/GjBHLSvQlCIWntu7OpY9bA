@@ -6,12 +6,12 @@ import { useAppSelector } from "../../hooks/useAppSelector"
 import { setDarkTheme, setLightTheme, setTheme, toggleTheme } from "../../lib/store/slices/theme"
 
 const ThemeToggler = () => {
-  const { theme } = useAppSelector(state => state.theme)
+  const { mode } = useAppSelector(state => state.theme)
   const dispatch = useAppDispatch()
 
   return (
     <div className={styles.div}>
-      <h1>Current theme: {theme}</h1>
+      <h1>Current theme: {mode}</h1>
 
       <button onClick={() => dispatch(setDarkTheme())}>Set dark theme</button>
       <button onClick={() => dispatch(setLightTheme())}>Set light theme</button>
