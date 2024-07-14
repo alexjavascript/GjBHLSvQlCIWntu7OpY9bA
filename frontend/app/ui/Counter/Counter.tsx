@@ -2,7 +2,7 @@
 
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import { increment } from "../../store/slices/counter";
+import { increment } from "../../lib/store/slices/counter";
 
 const Counter = () => {
   const { value } = useAppSelector(state => state.counter)
