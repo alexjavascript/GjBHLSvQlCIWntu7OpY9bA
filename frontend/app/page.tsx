@@ -1,8 +1,15 @@
 
-import Button from "../ui/Button/Button";
-import Counter from "../ui/Counter/Counter";
-import Text from "../ui/Text/Text";
-import ThemeToggler from "../ui/ThemeToggler/ThemeToggler";
+import Button from "./ui/Button/Button";
+import Counter from "./ui/Counter/Counter";
+import Text from "./ui/Text/Text";
+import ThemeToggler from "./ui/ThemeToggler/ThemeToggler";
+
+// fetch(process.env.NEXT_STRAPI_PUBLIC_URL)
+console.log('# test', process.env.NEXT_STRAPI_PUBLIC_URL)
+
+fetch(`${process.env.NEXT_STRAPI_PUBLIC_URL}/events`)
+  .then(response => response.json())
+  .then(data => console.log('DATA!', {data}))
 
 const Page = () => {
   console.log('# server');

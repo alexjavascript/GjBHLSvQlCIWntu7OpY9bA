@@ -3,7 +3,7 @@
 import styles from './ThemeToggler.module.scss';
 import { useAppDispatch } from "../../hooks/useAppDispatch"
 import { useAppSelector } from "../../hooks/useAppSelector"
-import { setDarkTheme, setLightTheme, setTheme, toggleTheme } from "../../store/slices/theme"
+import { setDarkTheme, setLightTheme, setTheme, toggleTheme } from "../../lib/store/slices/theme"
 
 const ThemeToggler = () => {
   const { mode } = useAppSelector(state => state.theme)
