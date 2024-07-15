@@ -31,26 +31,26 @@ const Month = (props: Props) => {
 
   const { time } = useAppSelector((state) => state.date)
   const dispatch = useAppDispatch()
-  const searchParams = useSearchParams()
-  const router = useRouter()
-  const pathname = usePathname()
+  // const searchParams = useSearchParams()
+  // const router = useRouter()
+  // const pathname = usePathname()
 
-  const updateSearchParams = (date: Date) => router.push(`${pathname}?${getSearchParams(date).toString()}`)
+  // const updateSearchParams = (date: Date) => router.push(`${pathname}?${getSearchParams(date).toString()}`)
 
-  useEffect(() => {
-    const param = searchParams.get(DATE_URL_PARAM) || '';
+  // useEffect(() => {
+  //   const param = searchParams.get(DATE_URL_PARAM) || '';
 
-    if (/^\d{4}-\d{1,2}$/.test(param)) {
-      const [year, month] = param.split('-')
-      const nextDate = new Date(+year, +month - 1)
-      dispatch(setTime(nextDate.getTime()))
-      return
-    }
-  }, [searchParams, dispatch])
+  //   if (/^\d{4}-\d{1,2}$/.test(param)) {
+  //     const [year, month] = param.split('-')
+  //     const nextDate = new Date(+year, +month - 1)
+  //     dispatch(setTime(nextDate.getTime()))
+  //     return
+  //   }
+  // }, [searchParams, dispatch])
 
-  useEffect(() => {
-    updateSearchParams(new Date(time))
-  }, [time, pathname, router])
+  // useEffect(() => {
+  //   updateSearchParams(new Date(time))
+  // }, [time, pathname, router])
 
   const handlePrev = () => {
     dispatch(decMonth())

@@ -17,13 +17,6 @@ const WEEK_DAY_NAMES = [
 const Calendar = () => {
   const { time } = useAppSelector(state => state.date)
 
-  let start = new Date(new Date(time).setDate(1))
-  console.log({ start })
-  // const offset = start.getDay() === 0 ? 6 : start.getDay() - 1
-  // start = new Date(start.setDate(start.getDate() - offset))
-
-  // console.log({ start })
-
   return (
     <section className={styles.calendar}>
       <div className={styles.names}>
