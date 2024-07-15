@@ -1,0 +1,33 @@
+.calendar {
+  height: 100%;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.names {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, minmax(50px, 1fr));
+  height: 100%;
+  border: 1px solid var(--color-foreground-secondary);
+  border-radius: 24px;
+}
+
+.day {
+  border-right: 1px solid var(--color-foreground-secondary);
+  border-bottom: 1px solid var(--color-foreground-secondary);
+
+  &:nth-child(7n) {
+    border-right: none;
+  }
+
+  &:nth-child(n + 36) {
+    border-bottom: none;
+  }
+}

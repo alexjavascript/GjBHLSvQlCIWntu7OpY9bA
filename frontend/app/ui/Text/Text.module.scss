@@ -39,3 +39,11 @@
   font-weight: 500;
 }
 
+.link {
+  color: inherit;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

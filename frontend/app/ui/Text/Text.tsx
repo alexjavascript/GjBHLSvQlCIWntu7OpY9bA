@@ -1,7 +1,9 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, HTMLAttributeAnchorTarget, PropsWithChildren } from "react";
 import localFont from 'next/font/local';
 import classNames from "classnames";
 import styles from './Text.module.scss';
+import Link from "next/link";
+import { Url } from "next/dist/shared/lib/router/router";
 
 const redcollar = localFont({ 
   src: './../../../public/fonts/redcollar-400.woff2',
@@ -33,25 +35,32 @@ type Tag =
   | 'h2' 
   | 'h3' 
   | 'p'
-  | 'span';
+  | 'span'
+  | 'a';
 
 type Props = {
+  className?: string;
   tag: Tag;
+  key?: string;
+  href?: Url;
+  target?: HTMLAttributeAnchorTarget
   display: Display;
   children: string;
 }
 
 const Text: FC<PropsWithChildren<Props>> = (props) => {
-  const { tag, display, children } = props;
+  const { className = '', tag, display, children, href = '', target} = props;
 
   const nextProps = {
     className: classNames(
       styles.text, 
       styles[display],
       {
+        [styles.link]: tag === 'a',
         [redcollar.className]: display === 'h1' || display === 'h2' || display === 'h3',
         [ttcommons.className]: display === 'p1' || display === 'p2' || display === 'p3',
-      }
+      },
+      className
     )
   }
 
@@ -66,6 +75,8 @@ const Text: FC<PropsWithChildren<Props>> = (props) => {
       return <p {...nextProps}>{children}</p>
     case 'span':
       return <span {...nextProps}>{children}</span>
+    case 'a':
+      return <Link {...nextProps} target={target} href={href}>{children}</Link>
   }
 }
 

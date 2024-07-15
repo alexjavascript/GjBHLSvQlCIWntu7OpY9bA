@@ -1,5 +1,7 @@
 html {
   --color-white: #FFFFFF;
+  --color-red: #F51B1B;
+  --color-black: #0D0C0C;
 }
 
 html.light {

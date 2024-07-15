@@ -10,7 +10,7 @@ function Layout(props: Props) {
   const { children } = props;
 
   return (
-    <StoreProvider count={0}>
+    <StoreProvider>
       <HTML>
         {children}
       </HTML>

@@ -1,12 +1,14 @@
 .button {
   box-sizing: border-box;
+  width: fit-content;
+  height: fit-content;
   border: none;
-  border-radius: 12px;
   cursor: pointer;
   transition: 
     color 0.1s ease, 
     border-color 0.1s ease,
-    background-color 0.1s ease;
+    background-color 0.1s ease,
+    opacity 0.1s ease;
 }
 
 .display {
@@ -30,6 +32,11 @@
   &-secondary {
     color: var(--color-foreground-primary);
     background-color: var(--color-background-secondary);
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.65;
+    }
 
     &:disabled,
     &.disabled {
@@ -59,9 +66,11 @@
 .size {
   &-default {
     padding: 16px 32px;
+    border-radius: 12px;
   }
 
   &-small {
     padding: 8px 16px;
+    border-radius: 8px;
   }
 }
