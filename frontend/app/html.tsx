@@ -31,6 +31,7 @@ const HTML = (props: Props) => {
               width="470"
               height="40"
               alt="Event Planner logotype"
+              priority
             />
           </div>
 
@@ -80,6 +81,8 @@ const HTML = (props: Props) => {
               width={320}
               height={227}
               alt="face"
+              unoptimized
+              priority
             />
 
             <div className={styles.$88005553555}>

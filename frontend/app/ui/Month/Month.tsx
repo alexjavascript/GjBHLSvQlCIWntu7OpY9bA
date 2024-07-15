@@ -46,7 +46,11 @@ const Month = (props: Props) => {
       dispatch(setTime(nextDate.getTime()))
       return
     }
-  }, [])
+  }, [searchParams, dispatch])
+
+  useEffect(() => {
+    updateSearchParams(new Date(time))
+  }, [time, pathname, router])
 
   const handlePrev = () => {
     dispatch(decMonth())
@@ -55,8 +59,7 @@ const Month = (props: Props) => {
   const handleNext = () => {
     dispatch(incMonth())
   }
-  
-  updateSearchParams(new Date(time))
+
   const month = getMonthName(new Date(time))
 
   return (
