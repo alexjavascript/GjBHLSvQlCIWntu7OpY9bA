@@ -8,7 +8,6 @@ import Toggle from '../Toggle/Toggle';
 import classNames from 'classnames';
 import { useEffect } from 'react';
 
-
 type Props = {
   className?: string;
 }
@@ -19,7 +18,15 @@ const Theme = (props: Props) => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(setTheme(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'))
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+    const dispatchTheme = () => dispatch(setTheme(mediaQuery.matches ? 'light' : 'dark'));
+
+    dispatchTheme()
+    mediaQuery.addEventListener('change', dispatchTheme)
+
+    return () => {
+      mediaQuery.removeEventListener('change', dispatchTheme)
+    }
   }, [])
 
   const handleChange = (checked: boolean) => dispatch(setTheme(checked ? 'dark' : 'light'))

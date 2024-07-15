@@ -75,6 +75,7 @@ const HTML = (props: Props) => {
             <Image 
               className={styles.alexjavascript}
               src="/images/eyes.gif"
+              loading="eager"
               width={320}
               height={227}
               alt="face"
