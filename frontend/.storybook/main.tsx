@@ -2,7 +2,7 @@ import type { StorybookConfig } from "@storybook/nextjs";
 import StorybookStyles from "./misc/StorybookStyles";
 
 const config: StorybookConfig = {
-  stories: ["../ui/**/*.stories.tsx"],
+  stories: ["../app/ui/**/*.stories.tsx"],
   managerHead: StorybookStyles(),
   addons: [
     "@storybook/addon-onboarding",
