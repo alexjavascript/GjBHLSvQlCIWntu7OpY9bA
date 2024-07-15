@@ -53,12 +53,8 @@ const HTML = (props: Props) => {
           </div>
 
           <div className={styles.copyright}>
-            <Text tag="span" display="p3" href="https://github.com/alexjavascript">Developed by </Text>
+            <Text tag="h2" display="p3" href="https://github.com/alexjavascript">Developed by </Text>
             <Text tag="a" display="p3" href="https://github.com/alexjavascript" target="_blank">@alexjavascript</Text>
-            <Text tag="span" display="p3">, </Text>
-            <Text tag="a" display="p3" href="https://github.com/maxjavascript" target="_blank">@maxjavascript</Text>
-            <Text tag="span" display="p3"> & </Text>
-            <Text tag="a" display="p3" href="https://github.com/babydiv" target="_blank">@babydiv</Text>
             <Text tag="span" display="p3">.</Text>
           </div>
 
@@ -69,8 +65,8 @@ const HTML = (props: Props) => {
           </div>
         </footer>
 
-        <section className={styles.babydiv}>
-          <div className={styles.maxjavascript}></div>
+        <section className={styles.modal}>
+          <div className={styles.overlay}></div>
           <div className={styles.xD}>
             <Image 
               className={styles.alexjavascript}
@@ -87,12 +83,8 @@ const HTML = (props: Props) => {
               <Text tag="h2" display="h3">Mobile version is in progress...</Text>
 
               <div>
-                <Text tag="span" display="p3" href="https://github.com/alexjavascript">Developed by </Text>
+                <Text tag="h2" display="p3" href="https://github.com/alexjavascript">Developed by </Text>
                 <Text tag="a" display="p3" href="https://github.com/alexjavascript" target="_blank">@alexjavascript</Text>
-                <Text tag="span" display="p3">, </Text>
-                <Text tag="a" display="p3" href="https://github.com/maxjavascript" target="_blank">@maxjavascript</Text>
-                <Text tag="span" display="p3"> & </Text>
-                <Text tag="a" display="p3" href="https://github.com/babydiv" target="_blank">@babydiv</Text>
                 <Text tag="span" display="p3">. </Text>
               </div>
 
