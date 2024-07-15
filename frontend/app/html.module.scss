@@ -22,12 +22,19 @@
   align-items: center;
 }
 
-.actions {
-  grid-column: 4 / 7;
-  display: flex;
-  align-items: center;
-  gap: 24px;
+// .actions {
+//   grid-column: 4 / 7;
+//   display: flex;
+//   align-items: center;
+//   gap: 24px;
+// }
+.theme {
+  grid-column: 4 / 5;
 }
+.month {
+  grid-column: 5 / 7;
+}
+
 
 .login {
   grid-column: 7 / -1;

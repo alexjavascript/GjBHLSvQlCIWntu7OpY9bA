@@ -34,10 +34,9 @@ const HTML = (props: Props) => {
             />
           </div>
 
-          <div className={styles.actions}>
-            <Month />
-            <Theme />
-          </div>
+          <Theme className={styles.theme} />
+          <Month className={styles.month} />
+
 
           <Button className={styles.login} display="primary" size="default">Login</Button>
         </header>

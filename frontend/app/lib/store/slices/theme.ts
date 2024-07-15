@@ -7,7 +7,7 @@ type State = {
 }
 
 const initialState: State = {
-  mode: 'dark',
+  mode: 'light',
 }
 
 export const theme = createSlice({
