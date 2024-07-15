@@ -1,6 +1,6 @@
 'use client';
 
-import { PropsWithChildren } from "react"
+import { PropsWithChildren, Suspense } from "react"
 import { useAppSelector } from "./hooks/useAppSelector";
 import styles from './html.module.scss';
 import Image from "next/image";
@@ -35,7 +35,9 @@ const HTML = (props: Props) => {
           </div>
 
           <Theme className={styles.theme} />
-          <Month className={styles.month} />
+          <Suspense>
+            <Month className={styles.month} />
+          </Suspense>
 
 
           <Button className={styles.login} display="primary" size="default">Login</Button>
