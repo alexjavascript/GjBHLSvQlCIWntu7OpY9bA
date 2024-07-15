@@ -83,14 +83,14 @@ const HTML = (props: Props) => {
               <Text tag="h2" display="h3">Mobile version is in progress...</Text>
 
               <div>
-                <Text tag="h2" display="p3" href="https://github.com/alexjavascript">Developed by </Text>
-                <Text tag="a" display="p3" href="https://github.com/alexjavascript" target="_blank">@alexjavascript</Text>
-                <Text tag="span" display="p3">. </Text>
+                <Text tag="span" display="p3">Frontend Season, 2024. </Text>
+                <Text tag="a" display="p3" href="https://redcollar.ru">@RedCollar :D</Text>
               </div>
 
               <div>
-                <Text tag="span" display="p3">Frontend Season, 2024. </Text>
-                <Text tag="a" display="p3" href="https://redcollar.ru">@RedCollar :D</Text>
+                <Text tag="span" display="p3" href="https://github.com/alexjavascript">Developed by </Text>
+                <Text tag="a" display="p3" href="https://github.com/alexjavascript" target="_blank">@alexjavascript</Text>
+                <Text tag="span" display="p3">. </Text>
               </div>
             </div>
           </div>
