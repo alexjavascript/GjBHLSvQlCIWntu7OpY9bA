@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { theme } from "./slices/theme";
+import { date } from "./slices/date";
 
 export const createStore = () => {
   return configureStore({
     reducer: {
       theme: theme.reducer,
+      date: date.reducer,
     }
   });
 }

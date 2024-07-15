@@ -8,6 +8,9 @@ import ChevronRight from './../Icon/24/ChevronRight.svg';
 import { useEffect } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import classNames from "classnames";
+import { useAppSelector } from "../../hooks/useAppSelector";
+import { useAppDispatch } from "../../hooks/useAppDispatch";
+import { decMonth, incMonth, setTime } from "../../lib/store/slices/date";
 
 const DATE_URL_PARAM = 'date'
 
@@ -26,36 +29,35 @@ type Props = {
 const Month = (props: Props) => {
   const {className = ''} = props;
 
+  const { time } = useAppSelector((state) => state.date)
+  const dispatch = useAppDispatch()
   const searchParams = useSearchParams()
   const router = useRouter()
   const pathname = usePathname()
 
-  const updatePage = (nextParam: URLSearchParams) => {
-    router.replace(`${pathname}?${nextParam.toString()}`)
-  }
+  const updateSearchParams = (date: Date) => router.push(`${pathname}?${getSearchParams(date).toString()}`)
 
-  const dateParam = searchParams.get(DATE_URL_PARAM) || '';
-  let date;
+  useEffect(() => {
+    const param = searchParams.get(DATE_URL_PARAM) || '';
 
-  if (/^\d{4}-\d{1,2}$/.test(dateParam)) {
-    const [year, month] = dateParam.split('-')
-    
-    date = new Date(+year, +month - 1)
-  } else {
-    date = new Date()
-    
-    updatePage(getSearchParams(date))
-  }
+    if (/^\d{4}-\d{1,2}$/.test(param)) {
+      const [year, month] = param.split('-')
+      const nextDate = new Date(+year, +month - 1)
+      dispatch(setTime(nextDate.getTime()))
+      return
+    }
+  }, [])
 
   const handlePrev = () => {
-    date.setMonth(date.getMonth() - 1)
-    updatePage(getSearchParams(date))
+    dispatch(decMonth())
   }
 
-  const handleNext= () => {
-    date.setMonth(date.getMonth() + 1)
-    updatePage(getSearchParams(date))
+  const handleNext = () => {
+    dispatch(incMonth())
   }
+  
+  updateSearchParams(new Date(time))
+  const month = getMonthName(new Date(time))
 
   return (
     <div className={classNames(styles.month, className)}>
@@ -65,7 +67,7 @@ const Month = (props: Props) => {
       <Button className={styles.next} display="secondary" size="small" onClick={handleNext}>
         <ChevronRight />
       </Button>
-      <Text tag="p" display="h2" >{getMonthName(date)}</Text>
+      <Text tag="p" display="h2">{month}</Text>
     </div>
   )
 }
