@@ -22,13 +22,13 @@
   align-items: center;
 }
 
-.theme {
-  grid-column: 4 / 5;
-}
 .month {
-  grid-column: 5 / 7;
+  grid-column: 4 / 6;
 }
 
+.theme {
+  grid-column: 6 / 7;
+}
 
 .login {
   grid-column: 7 / -1;

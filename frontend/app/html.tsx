@@ -35,9 +35,8 @@ const HTML = (props: Props) => {
             />
           </div>
 
-          <Theme className={styles.theme} />
           <Month className={styles.month} />
-
+          <Theme className={styles.theme} />
 
           <Button className={styles.login} display="primary" size="default">Login</Button>
         </header>

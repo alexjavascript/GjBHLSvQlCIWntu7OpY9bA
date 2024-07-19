@@ -3,6 +3,9 @@
 import { useAppSelector } from '../../hooks/useAppSelector';
 import Text from '../Text/Text';
 import styles from './Calendar.module.scss';
+import classNames from 'classnames';
+
+const NUMBER_OF_DAYS_PER_SCREEN = 42;
 
 const WEEK_DAY_NAMES = [
   "Mon",
@@ -14,15 +17,23 @@ const WEEK_DAY_NAMES = [
   "Sun",
 ]
 
+const getScreenDays = (time: number) => {
+  let from = new Date(new Date(time).setDate(1))
+  const offset = from.getDay() === 0 ? 6 : from.getDay() - 1
+  from = new Date(from.setDate(from.getDate() - offset - 1))
+
+  return Array.from({ length: NUMBER_OF_DAYS_PER_SCREEN }, () => {
+    from = new Date(from.setDate(from.getDate() + 1));
+    console.log({ currentDay: from})
+    return new Date(from.getTime());
+  });
+}
+
 const Calendar = () => {
-  const { time } = useAppSelector(state => state.date)
+  const { time } = useAppSelector(state => state.date) 
 
-  // let start = new Date(new Date(time).setDate(1))
-  // console.log({ start })
-  // const offset = start.getDay() === 0 ? 6 : start.getDay() - 1
-  // start = new Date(start.setDate(start.getDate() - offset))
-
-  // console.log({ start })
+  const selectedDate = new Date(time);
+  const currentDate = new Date();
 
   return (
     <section className={styles.calendar}>
@@ -31,9 +42,23 @@ const Calendar = () => {
       </div>
       
       <div className={styles.board}>
-        {(new Array(42)).fill(null).map((_, index) => {
+        {getScreenDays(time).map((day) => {
           return (
-            <div key={index} className={styles.day}></div>
+            <div 
+              key={`${day.getMonth()}-${day.getDate()}`} 
+              className={classNames(styles.day, { 
+                [styles.today]: day.getMonth() === currentDate.getMonth() && day.getDate() === currentDate.getDate(), 
+                [styles.inactive]: day.getMonth() !== selectedDate.getMonth(),
+              })}
+            >
+              <Text
+                className={styles.date} 
+                tag="p" 
+                display="p1"
+              >
+                {String(day.getDate())}
+              </Text>
+            </div>
           )
         })}
       </div>
